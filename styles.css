@@ -1,0 +1,59 @@
+.zone-drone {
+    position: absolute;
+    z-index: 10000;
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.drone-body {
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.propeller {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #34495e;
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite;
+}
+
+.propeller-1 { top: -10px; left: 10px; }
+.propeller-2 { top: 10px; right: -10px; }
+.propeller-3 { bottom: -10px; left: 10px; }
+.propeller-4 { bottom: 10px; right: -10px; }
+
+.speech-bubble {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #2c3e50;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+} 

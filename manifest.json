@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Zone Drone",
+  "version": "1.0",
+  "description": "A helpful drone that reminds you to specify timezones in your communications",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>",
+        "https://mail.google.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icons/drone16.png",
+    "48": "icons/drone48.png",
+    "128": "icons/drone128.png"
+  }
+} 
