@@ -6,12 +6,7 @@ function createDrone() {
     const drone = document.createElement('div');
     drone.className = 'zone-drone';
     drone.innerHTML = `
-        <div class="drone-body">
-            <div class="propeller propeller-1"></div>
-            <div class="propeller propeller-2"></div>
-            <div class="propeller propeller-3"></div>
-            <div class="propeller propeller-4"></div>
-        </div>
+        <div class="drone-body">ZD</div>
         <div class="speech-bubble">
             Don't forget to specify the timezone! 🕒
         </div>
@@ -19,27 +14,19 @@ function createDrone() {
     return drone;
 }
 
-// Show drone animation
+// Show drone
 function showDrone(inputElement) {
     const drone = createDrone();
     document.body.appendChild(drone);
 
-    // Position drone above the input element
+    // Position drone near the input element
     const rect = inputElement.getBoundingClientRect();
-    drone.style.left = `${rect.left + window.scrollX}px`;
-    drone.style.top = `${rect.top + window.scrollY - 100}px`;
-
-    // Animate drone
-    setTimeout(() => {
-        drone.style.transform = 'translateY(100px)';
-    }, 100);
+    drone.style.left = `${rect.right + window.scrollX + 10}px`;
+    drone.style.top = `${rect.top + window.scrollY}px`;
 
     // Remove drone after 3 seconds
     setTimeout(() => {
-        drone.style.transform = 'translateY(-100px)';
-        setTimeout(() => {
-            drone.remove();
-        }, 500);
+        drone.remove();
     }, 3000);
 }
 
